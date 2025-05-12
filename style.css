@@ -1,9 +1,6 @@
-* {
-  box-sizing: border-box;
-}
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Arial', sans-serif;
   margin: 0;
   background: #fefefe;
   color: #222;
@@ -11,7 +8,7 @@ body {
 }
 
 .container {
-  max-width: 800px;
+  max-width: 900px;
   margin: auto;
   padding: 1.5rem;
 }
@@ -31,11 +28,35 @@ header nav a {
   color: #fff;
   text-decoration: none;
   margin: 0 1rem;
-  font-weight: 600;
+  font-weight: bold;
 }
 
 header nav a:hover {
   text-decoration: underline;
+}
+
+.profile-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 100px;
+  margin-right: 2rem;
+  object-fit: cover;
+}
+
+.profile-text {
+  flex: 1;
+}
+
+.icons a {
+  margin-right: 15px;
+  font-size: 1.5rem;
+  color: #003366;
 }
 
 section {
@@ -56,15 +77,13 @@ footer {
   margin-top: 4rem;
 }
 
-/* Responsive */
 @media (max-width: 600px) {
-  header nav {
-    display: flex;
+  .profile-section {
     flex-direction: column;
-    gap: 0.5rem;
+    align-items: flex-start;
   }
 
-  .container {
-    padding: 1rem;
+  .profile-pic {
+    margin-bottom: 1rem;
   }
 }
