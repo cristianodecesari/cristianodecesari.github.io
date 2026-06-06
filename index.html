@@ -7,868 +7,191 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
+
     gtag('config', 'G-2BNQ2XDC73');
-  </script>
-
+  </script>	
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="thCL96y37mWxePCTOJW0s4GP8RXPFAShzgX1ylQ3o6Y" />
-  <meta name="author" content="Cristiano De Cesari" />
-  <meta name="description" content="Cristiano De Cesari — PhD researcher in economics at the University of Padova, working on geopolitical shocks, international trade, economic geography, and energy economics." />
-
-  <title>Cristiano De Cesari — PhD in Economics</title>
-
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23211c18'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23b1481f'/%3E%3C/svg%3E" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cristiano De Cesari – PhD in Economics</title>
+  <link rel="stylesheet" href="style.css" />
+
   <style>
-    :root{
-      --paper:#f6f1e8;
-      --paper-2:#efe7d9;
-      --ink:#211c18;
-      --ink-soft:#4d473f;
-      --ink-faint:#8a8276;
-      --rust:#b1481f;
-      --rust-deep:#8e3717;
-      --line:#d9cfbe;
-      --line-soft:#e6ddcc;
-      --serif:"Fraunces", Georgia, "Times New Roman", serif;
-      --sans:"Hanken Grotesk", system-ui, sans-serif;
-      --mono:"IBM Plex Mono", ui-monospace, monospace;
-      --maxw:1180px;
-      --pad:clamp(1.25rem, 5vw, 4rem);
-    }
+    /* --- Minor enhancements layered on top of style.css --- */
+    html { scroll-behavior: smooth; }
+    section[id] { scroll-margin-top: 1.5rem; }
 
-    *{ box-sizing:border-box; }
-
-    html{
-      scroll-behavior:smooth;
-      -webkit-text-size-adjust:100%;
-    }
-
-    body{
-      margin:0;
-      font-family:var(--sans);
-      color:var(--ink);
-      background:
-        radial-gradient(130% 90% at 50% -12%, #fbf7ef 0%, var(--paper) 55%) fixed;
-      line-height:1.6;
-      font-size:clamp(1rem, 0.55vw + 0.92rem, 1.06rem);
-      -webkit-font-smoothing:antialiased;
-      text-rendering:optimizeLegibility;
-      overflow-x:hidden;
-    }
-
-    /* subtle paper grain */
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-      z-index:0;
-      pointer-events:none;
-      opacity:.045;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    }
-
-    img{ max-width:100%; display:block; }
-    a{ color:inherit; text-decoration:none; }
-
-    ::selection{ background:var(--rust); color:var(--paper); }
-
-    :focus-visible{
-      outline:2px solid var(--rust);
-      outline-offset:3px;
-      border-radius:2px;
-    }
-
-    .wrap{
-      width:100%;
-      max-width:var(--maxw);
-      margin-inline:auto;
-      padding-inline:var(--pad);
-      position:relative;
-      z-index:1;
-    }
-
-    .eyebrow{
-      font-family:var(--mono);
-      font-size:.72rem;
-      letter-spacing:.22em;
-      text-transform:uppercase;
-      color:var(--rust);
-      font-weight:500;
-    }
-
-    /* ---------- NAV ---------- */
-    .nav{
-      position:sticky;
-      top:0;
-      z-index:50;
-      backdrop-filter:saturate(140%) blur(8px);
-      background:color-mix(in srgb, var(--paper) 82%, transparent);
-      border-bottom:1px solid var(--line-soft);
-    }
-    .nav__inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:1rem;
-      height:4rem;
-    }
-    .nav__brand{
-      font-family:var(--serif);
-      font-weight:600;
-      font-size:1.02rem;
-      letter-spacing:.01em;
-      white-space:nowrap;
-    }
-    .nav__brand .dot{ color:var(--rust); }
-    .nav__links{
-      display:flex;
-      align-items:center;
-      gap:clamp(.7rem, 2.4vw, 1.9rem);
-      font-family:var(--mono);
-      font-size:.78rem;
-      letter-spacing:.04em;
-    }
-    .nav__links a{
-      position:relative;
-      color:var(--ink-soft);
-      padding:.2rem 0;
-      transition:color .25s ease;
-    }
-    .nav__links a::after{
-      content:"";
-      position:absolute;
-      left:0; bottom:-2px;
-      height:1.5px; width:100%;
-      background:var(--rust);
-      transform:scaleX(0);
-      transform-origin:left;
-      transition:transform .3s cubic-bezier(.2,.7,.2,1);
-    }
-    .nav__links a:hover{ color:var(--ink); }
-    .nav__links a:hover::after{ transform:scaleX(1); }
-    .nav__cv{
-      border:1px solid var(--ink);
-      border-radius:999px;
-      padding:.34rem .85rem !important;
-      color:var(--ink) !important;
-      transition:background .25s ease, color .25s ease, border-color .25s ease !important;
-    }
-    .nav__cv::after{ display:none; }
-    .nav__cv:hover{
-      background:var(--ink);
-      color:var(--paper) !important;
-    }
-
-    /* ---------- HERO ---------- */
-    .hero{
-      padding-block:clamp(3.5rem, 12vh, 8rem) clamp(3rem, 9vh, 6.5rem);
-    }
-    .hero__rule{
-      height:1px;
-      background:var(--line);
-      margin-bottom:2.4rem;
-    }
-    .hero__name{
-      font-family:var(--serif);
-      font-optical-sizing:auto;
-      font-weight:500;
-      font-size:clamp(3rem, 11vw, 7rem);
-      line-height:.97;
-      letter-spacing:-.02em;
-      margin:.7rem 0 0;
-    }
-    .hero__name .dot{ color:var(--rust); }
-    .hero__sub{
-      font-family:var(--serif);
-      font-style:italic;
-      font-weight:400;
-      font-size:clamp(1.15rem, 2.6vw, 1.7rem);
-      color:var(--ink-soft);
-      margin:1.4rem 0 0;
-    }
-    .hero__tags{
-      list-style:none;
-      display:flex;
-      flex-wrap:wrap;
-      gap:.55rem;
-      padding:0;
-      margin:1.7rem 0 0;
-    }
-    .hero__tags li{
-      font-family:var(--mono);
-      font-size:.72rem;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-      color:var(--ink-soft);
-      border:1px solid var(--line);
-      border-radius:999px;
-      padding:.32rem .8rem;
-      background:color-mix(in srgb, var(--paper-2) 50%, transparent);
-    }
-    .hero__intro{
-      max-width:46ch;
-      margin:2.2rem 0 0;
-      font-size:1.06rem;
-      color:var(--ink-soft);
-    }
-    .hero__scroll{
-      margin-top:2.6rem;
-      font-family:var(--mono);
-      font-size:.72rem;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      color:var(--ink-faint);
-      display:inline-flex;
-      align-items:center;
-      gap:.6rem;
-    }
-    .hero__scroll i{ color:var(--rust); animation:bob 1.8s ease-in-out infinite; }
-    @keyframes bob{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(4px);} }
-
-    /* ---------- SECTION LAYOUT ---------- */
-    .section{
-      display:grid;
-      grid-template-columns:minmax(11rem, 15rem) minmax(0, 1fr);
-      gap:clamp(2rem, 5vw, 5rem);
-      padding-block:clamp(3rem, 8vh, 6rem);
-      border-top:1px solid var(--line);
-      scroll-margin-top:5.5rem;
-    }
-    .rail{ position:relative; }
-    @media (min-width:900px){
-      .rail{ position:sticky; top:6rem; align-self:start; }
-    }
-    .rail__index{
-      font-family:var(--mono);
-      font-size:.8rem;
-      letter-spacing:.1em;
-      color:var(--rust);
-      font-weight:500;
-    }
-    .rail__title{
-      font-family:var(--serif);
-      font-weight:500;
-      font-size:clamp(1.6rem, 3vw, 2.1rem);
-      line-height:1.05;
-      letter-spacing:-.01em;
-      margin:.5rem 0 0;
-    }
-    .rail__note{
-      margin:.9rem 0 0;
-      max-width:24ch;
-      font-size:.92rem;
-      color:var(--ink-faint);
-    }
-
-    /* ---------- ABOUT ---------- */
-    .about{
-      display:grid;
-      grid-template-columns:minmax(0,1fr);
-      gap:2.4rem;
-    }
-    @media (min-width:620px){
-      .about{ grid-template-columns:auto minmax(0,1fr); align-items:start; }
-    }
-    .portrait{
-      position:relative;
-      width:clamp(150px, 38vw, 210px);
-    }
-    .portrait img{
-      width:100%;
-      aspect-ratio:4/5;
-      object-fit:cover;
-      border-radius:4px;
-      filter:saturate(.96) contrast(1.02);
-      position:relative;
-      z-index:1;
-    }
-    .portrait::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      border:1px solid var(--rust);
-      border-radius:4px;
-      transform:translate(12px, 12px);
-      z-index:0;
-    }
-    .about__body p{ margin:0 0 1.1rem; }
-    .about__lead{
-      font-size:1.12rem;
-      color:var(--ink);
-    }
-    .about__lead::first-letter{
-      font-family:var(--serif);
-      font-weight:600;
-      font-size:3.6em;
-      line-height:.72;
-      float:left;
-      padding:.05em .12em 0 0;
-      color:var(--rust);
-    }
-    .about__body a.inline{
-      color:var(--ink);
-      background-image:linear-gradient(var(--rust), var(--rust));
-      background-size:100% 1.5px;
-      background-position:0 100%;
-      background-repeat:no-repeat;
-      padding-bottom:1px;
-      transition:background-size .25s ease, color .25s ease;
-    }
-    .about__body a.inline:hover{ color:var(--rust); }
-
-    .socials{
-      display:flex;
-      gap:.7rem;
-      margin-top:1.6rem;
-    }
-    .socials a{
-      width:2.7rem; height:2.7rem;
-      display:grid; place-items:center;
-      border:1px solid var(--line);
-      border-radius:50%;
-      color:var(--ink-soft);
-      font-size:1rem;
-      transition:transform .25s ease, background .25s ease, color .25s ease, border-color .25s ease;
-    }
-    .socials a:hover{
-      background:var(--ink);
-      color:var(--paper);
-      border-color:var(--ink);
-      transform:translateY(-3px);
-    }
-
-    /* ---------- RESEARCH ---------- */
-    .subhead{
-      font-family:var(--mono);
-      font-size:.74rem;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      color:var(--ink-faint);
-      display:flex;
-      align-items:center;
-      gap:1rem;
-      margin:0 0 .4rem;
-    }
-    .subhead::after{
-      content:"";
-      flex:1;
-      height:1px;
-      background:var(--line-soft);
-    }
-    .subhead.spaced{ margin-top:3rem; }
-
-    .papers{ list-style:none; margin:0; padding:0; }
-    .paper{ border-bottom:1px solid var(--line); }
-    .paper:first-child{ border-top:1px solid var(--line); }
-
-    .paper__summary{
-      list-style:none;
-      cursor:pointer;
-      display:flex;
-      align-items:flex-start;
-      gap:1.2rem;
-      padding:1.5rem 0;
-    }
-    .paper__summary::-webkit-details-marker{ display:none; }
-    .paper__head{ flex:1; min-width:0; }
-    .paper__eyebrow{
-      font-family:var(--mono);
-      font-size:.68rem;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-      color:var(--rust);
-    }
-    .paper__title{
-      font-family:var(--serif);
-      font-weight:500;
-      font-size:clamp(1.3rem, 2.6vw, 1.85rem);
-      line-height:1.12;
-      letter-spacing:-.01em;
-      margin:.4rem 0 .5rem;
-      transition:color .25s ease;
-    }
-    .paper__summary:hover .paper__title{ color:var(--rust); }
-    .paper__authors{
-      font-style:italic;
-      font-family:var(--serif);
-      color:var(--ink-soft);
-      font-size:1rem;
-    }
-    .tags{
-      list-style:none;
-      display:flex;
-      flex-wrap:wrap;
-      gap:.45rem;
-      padding:0;
-      margin:.9rem 0 0;
-    }
-    .tags li{
-      font-family:var(--mono);
-      font-size:.66rem;
-      letter-spacing:.05em;
-      text-transform:uppercase;
-      color:var(--ink-soft);
-      border:1px solid var(--line);
-      border-radius:3px;
-      padding:.22rem .5rem;
-    }
-    .paper__toggle{
-      flex-shrink:0;
-      width:2.3rem; height:2.3rem;
-      margin-top:.3rem;
-      border:1px solid var(--line);
-      border-radius:50%;
-      display:grid;
-      place-items:center;
-      position:relative;
-      transition:background .3s ease, border-color .3s ease, transform .3s ease;
-    }
-    .paper__toggle::before,
-    .paper__toggle::after{
-      content:"";
-      position:absolute;
-      background:var(--ink-soft);
-      transition:transform .3s cubic-bezier(.2,.7,.2,1), background .3s ease;
-    }
-    .paper__toggle::before{ width:13px; height:1.5px; }
-    .paper__toggle::after{ width:1.5px; height:13px; }
-    .paper__summary:hover .paper__toggle{
-      border-color:var(--rust);
-      background:color-mix(in srgb, var(--rust) 8%, transparent);
-    }
-    .paper[open] .paper__toggle{
-      background:var(--ink);
-      border-color:var(--ink);
-      transform:rotate(135deg);
-    }
-    .paper[open] .paper__toggle::before,
-    .paper[open] .paper__toggle::after{ background:var(--paper); }
-
-    .paper__abstract{
-      overflow:hidden;
-    }
-    .paper__abstract-inner{
-      border-left:2px solid var(--rust);
-      padding:.2rem 0 1.8rem 1.4rem;
-      margin-left:.2rem;
-      max-width:68ch;
-      color:var(--ink-soft);
-    }
-    .paper__abstract-inner .lbl{
-      font-family:var(--mono);
-      font-size:.66rem;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-      color:var(--rust);
-      display:block;
-      margin-bottom:.5rem;
-    }
-    .paper__abstract-inner p{ margin:0; }
-    .paper[open] .paper__abstract-inner{ animation:reveal .5s ease both; }
-    @keyframes reveal{
-      from{ opacity:0; transform:translateY(-8px); }
-      to{ opacity:1; transform:none; }
-    }
-
-    /* ---------- TIMELINE LISTS ---------- */
-    .timeline{ list-style:none; margin:0; padding:0; }
-    .timeline li{
-      display:grid;
-      grid-template-columns:4.5rem 1fr;
-      gap:1.2rem;
-      padding:1.05rem 0;
-      border-bottom:1px solid var(--line-soft);
-      align-items:baseline;
-    }
-    .timeline li:first-child{ border-top:1px solid var(--line-soft); }
-    .timeline .yr{
-      font-family:var(--mono);
-      font-size:.82rem;
-      color:var(--rust);
-      letter-spacing:.04em;
-    }
-    .timeline .what{ font-weight:600; color:var(--ink); }
-    .timeline .where{ color:var(--ink-faint); }
-    .timeline .where::before{ content:" — "; color:var(--line); }
-    @media (max-width:480px){
-      .timeline li{ grid-template-columns:1fr; gap:.2rem; }
-    }
-
-    /* ---------- CONTACT ---------- */
-    .contact__email{
-      font-family:var(--serif);
-      font-weight:500;
-      font-size:clamp(1.6rem, 5vw, 2.6rem);
-      letter-spacing:-.01em;
-      line-height:1.15;
-      display:inline-block;
-      background-image:linear-gradient(var(--rust), var(--rust));
-      background-size:0% 2px;
-      background-position:0 100%;
-      background-repeat:no-repeat;
-      transition:background-size .35s ease, color .25s ease;
-      word-break:break-word;
-    }
-    .contact__email:hover{ background-size:100% 2px; color:var(--rust); }
-    .contact__rows{
-      margin-top:2rem;
-      display:grid;
-      gap:.9rem;
-    }
-    .contact__rows a, .contact__rows span{
-      display:flex;
-      align-items:center;
-      gap:.85rem;
-      color:var(--ink-soft);
-    }
-    .contact__rows i{
-      color:var(--rust);
-      width:1.3rem;
-      text-align:center;
-    }
-    .contact__rows a:hover{ color:var(--ink); }
-
-    /* ---------- FOOTER ---------- */
-    footer{
-      border-top:1px solid var(--line);
-      padding-block:2.2rem;
-    }
-    .footer__inner{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:space-between;
-      gap:.6rem;
-      font-family:var(--mono);
-      font-size:.74rem;
-      letter-spacing:.04em;
-      color:var(--ink-faint);
-    }
-
-    /* ---------- RESPONSIVE ---------- */
-    @media (max-width:780px){
-      .section{ grid-template-columns:1fr; gap:1.6rem; }
-      .rail__note{ max-width:40ch; }
-      .nav__brand{ font-size:.92rem; }
-    }
-    @media (max-width:520px){
-      .nav__links{ font-size:.72rem; gap:.65rem; }
-      .nav__cv{ padding:.3rem .65rem !important; }
-    }
-
-    /* ---------- MOTION ---------- */
-    @media (prefers-reduced-motion: no-preference){
-      .anim{ animation:rise .8s cubic-bezier(.2,.7,.2,1) both; }
-      @keyframes rise{
-        from{ opacity:0; transform:translateY(18px); }
-        to{ opacity:1; transform:none; }
-      }
-      .js .reveal{
-        opacity:0;
-        transform:translateY(26px);
-        transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1);
-      }
-      .js .reveal.in{ opacity:1; transform:none; }
+    /* Expandable abstracts: clearer affordance + gentle open animation */
+    details summary { cursor: pointer; list-style: none; }
+    details summary::-webkit-details-marker { display: none; }
+    details summary::after {
+      content: "+";
+      margin-left: .5rem;
+      font-weight: 700;
+      opacity: .5;
+    }
+    details[open] summary::after { content: "–"; }
+    details[open] > p { animation: fadeAbstract .35s ease; }
+    @keyframes fadeAbstract {
+      from { opacity: 0; transform: translateY(-4px); }
+      to   { opacity: 1; transform: none; }
     }
   </style>
 </head>
 <body>
-
-  <nav class="nav">
-    <div class="wrap nav__inner">
-      <a href="#top" class="nav__brand">Cristiano De Cesari<span class="dot">.</span></a>
-      <div class="nav__links">
+  <header>
+    <div class="container">
+      <h1>Cristiano De Cesari</h1>
+      <p>PhD Student in Economics · University of Padova</p>
+      <nav>
         <a href="#about">About</a>
         <a href="#research">Research</a>
-        <a href="#talks">Talks</a>
+        <a href="cv_decesari.pdf" target="_blank">CV</a>
         <a href="#contact">Contact</a>
-        <a href="cv_decesari.pdf" target="_blank" rel="noopener" class="nav__cv">CV</a>
-      </div>
-    </div>
-  </nav>
-
-  <header id="top" class="hero">
-    <div class="wrap">
-      <div class="hero__rule anim" style="animation-delay:.02s"></div>
-      <p class="eyebrow anim" style="animation-delay:.08s">Empirical economics · International trade · Geopolitics</p>
-      <h1 class="hero__name anim" style="animation-delay:.16s">Cristiano<br>De Cesari<span class="dot">.</span></h1>
-      <p class="hero__sub anim" style="animation-delay:.3s">PhD Student in Economics · University of Padova</p>
-      <ul class="hero__tags anim" style="animation-delay:.42s">
-        <li>University of Padova</li>
-        <li>Visiting Researcher · LSE</li>
-        <li>Kyiv School of Economics</li>
-      </ul>
-      <p class="hero__intro anim" style="animation-delay:.52s">
-        I study how geopolitical shocks reshape international trade, energy markets,
-        and economic geography — from sanctions and oil rerouting to the long-run
-        resilience of cities.
-      </p>
-      <a href="#about" class="hero__scroll anim" style="animation-delay:.64s">
-        Read more <i class="fa-solid fa-arrow-down"></i>
-      </a>
+      </nav>
     </div>
   </header>
 
-  <main>
-    <!-- ABOUT -->
-    <section id="about" class="section reveal">
-      <aside class="rail">
-        <span class="rail__index">01</span>
-        <h2 class="rail__title">About</h2>
-        <p class="rail__note">Background, interests, and current affiliations.</p>
-      </aside>
-      <div class="about">
-        <div class="portrait">
-          <img src="https://raw.githubusercontent.com/cristianodecesari/cristianodecesari.github.io/main/assets/profile.jpeg" alt="Cristiano De Cesari" />
-        </div>
-        <div class="about__body">
-          <p class="about__lead">
-            I am a PhD student in Economics at the University of Padova, currently a
-            Visiting Doctoral Researcher at the London School of Economics and
-            Political Science (LSE).
-          </p>
-          <p>
-            My research interests include geopolitical shocks, international trade,
-            economic geography, oil shocks and macroeconomics. I hold dual master's
-            degrees from the University of Urbino and the Kyiv School of Economics.
-          </p>
-          <div class="socials">
-            <a href="mailto:cristiano.decesari@phd.unipd.it" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
-            <a href="https://www.linkedin.com/in/cristiano-de-cesari-803b68181/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="cv_decesari.pdf" target="_blank" rel="noopener" aria-label="Curriculum Vitae"><i class="fa-solid fa-file-lines"></i></a>
-          </div>
+  <main class="container">
+    <section id="about" class="profile-section">
+      <img src="https://raw.githubusercontent.com/cristianodecesari/cristianodecesari.github.io/main/assets/profile.jpeg" alt="Profile Photo" class="profile-pic" />
+      <div class="profile-text">
+        <h2>About Me</h2>
+        <p>
+          I am a PhD student in Economics at the University of Padova, currently a Visiting Doctoral Researcher at the London School of Economics and Political Science (LSE). My research interests include geopolitical shocks, international trade, economic geography, oil shocks and macroeconomics. I hold dual master’s degrees from the University of Urbino and the Kyiv School of Economics.
+        </p>
+        <div class="icons">
+          <a href="mailto:cristiano.decesari@phd.unipd.it"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/cristiano-de-cesari-803b68181/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="cv_decesari.pdf" target="_blank"><i class="fas fa-file-alt"></i></a>
         </div>
       </div>
     </section>
 
-    <!-- RESEARCH -->
-    <section id="research" class="section reveal">
-      <aside class="rail">
-        <span class="rail__index">02</span>
-        <h2 class="rail__title">Research</h2>
-        <p class="rail__note">Working papers in international trade, sanctions, and energy economics.</p>
-      </aside>
-      <div class="research__body">
-        <h3 class="subhead">Working Papers</h3>
-        <ul class="papers">
 
-          <li>
-            <details class="paper">
-              <summary class="paper__summary">
-                <div class="paper__head">
-                  <span class="paper__eyebrow">Working paper</span>
-                  <h4 class="paper__title">Trade Under Sanctions and Diversion</h4>
-                  <span class="paper__authors">with G. Cainelli &amp; R. Ganau</span>
-                  <ul class="tags">
-                    <li>Trade</li><li>Sanctions</li><li>Gravity</li><li>FDI</li>
-                  </ul>
-                </div>
-                <span class="paper__toggle" aria-hidden="true"></span>
-              </summary>
-              <div class="paper__abstract">
-                <div class="paper__abstract-inner">
-                  <span class="lbl">Abstract</span>
-                  <p>
-                    Economic sanctions are a central instrument of foreign policy in the aftermath of geopolitical conflicts,
-                    yet their effectiveness may be undermined by indirect adjustment mechanisms. This paper quantifies
-                    both the direct impact of EU trade sanctions on Russia and the extent to which these measures generate
-                    systematic trade diversion through third countries, exploiting the 2014 and 2022 Ukraine–Russia crises
-                    as a two-shock natural experiment. The analysis combines a newly constructed panel of quarterly EU27
-                    exports to 151 destination countries from 2012Q1 to 2023Q4 at the HS2 level, covering more than 21 million
-                    observations, with transaction-level data on cross-border foreign direct investment involving Russia.
-                    Trade effects are estimated within a gravity-based triple-difference framework featuring high-dimensional
-                    fixed effects, while FDI dynamics are examined using bilateral investor–target–quarter data encompassing
-                    both greenfield investments and mergers and acquisitions. The results indicate that EU exports to Russia
-                    in product categories affected by the 2014 sanctions declined by approximately 12 percent, whereas the
-                    sanctions introduced in 2022 triggered abrupt and severe contractions exceeding 80 percent. At the same
-                    time, EU exports to a limited group of third countries increased sharply after 2022. These potential triangulating
-                    countries are not randomly distributed but are disproportionately composed of former Soviet
-                    Union members, BRICS economies, and countries exhibiting political alignment with Russia. Overall,
-                    the findings suggest that while EU sanctions substantially curtailed direct trade with Russia, their effectiveness
-                    was partly offset by predictable patterns of trade rerouting, highlighting the importance of
-                    addressing third-country channels in the design and enforcement of sanctions.
-                  </p>
-                </div>
-              </div>
-            </details>
-          </li>
+    <section id="research">
+      <h2>Research</h2>
+      <h3>Working Papers</h3>
 
-          <li>
-            <details class="paper">
-              <summary class="paper__summary">
-                <div class="paper__head">
-                  <span class="paper__eyebrow">Working paper</span>
-                  <h4 class="paper__title">The Hidden Cost of Oil Sanctions: Shipping Rerouting, Inflation, and CO₂ Emissions</h4>
-                  <span class="paper__authors">with C. Anderl</span>
-                  <ul class="tags">
-                    <li>Oil</li><li>Inflation</li><li>Shipping</li><li>CO₂</li>
-                  </ul>
-                </div>
-                <span class="paper__toggle" aria-hidden="true"></span>
-              </summary>
-              <div class="paper__abstract">
-                <div class="paper__abstract-inner">
-                  <span class="lbl">Abstract</span>
-                  <p>
-                    Western sanctions imposed on Russian oil following the 2022 invasion of Ukraine forced a structural reshaping of global crude oil trade,
-                    redirecting Russian exports from Europe toward India and China and more than doubling average maritime shipping distances. We study
-                    the macroeconomic and environmental consequences of this disruption using a novel instrument — the Oil Rerouting Index (ORI) —
-                    which quantifies the sanctions-induced increase in average shipping distances relative to the pre-war baseline. Using the ORI
-                    in panel local projections, we find that sanctions-induced rerouting significantly raised consumer inflation. Heterogeneity
-                    analysis reveals that Western economies bear a moderate inflationary burden, while Asian economies display larger but noisier
-                    responses, consistent with discounted Russian crude partially offsetting higher global freight costs. We further quantify the
-                    environmental cost of rerouting, finding that longer tanker routes generated at least 29 million tonnes of excess CO₂ over
-                    the post-sanctions period. These findings document an important tension between the intended geopolitical objectives of energy
-                    sanctions and their unintended macroeconomic and environmental consequences.
-                  </p>
-                </div>
-              </div>
-            </details>
-          </li>
+<ul>
+  <li>
+    <details>
+      <summary><strong>Trade Under Sanctions and Diversion</strong> (with G. Cainelli and R. Ganau)</summary>
+      <p>
+        Abstract: Economic sanctions are a central instrument of foreign policy in the aftermath of geopolitical conflicts,
+        yet their effectiveness may be undermined by indirect adjustment mechanisms. This paper quantifies
+        both the direct impact of EU trade sanctions on Russia and the extent to which these measures generate
+        systematic trade diversion through third countries, exploiting the 2014 and 2022 Ukraine–Russia crises
+        as a two-shock natural experiment. The analysis combines a newly constructed panel of quarterly EU27
+        exports to 151 destination countries from 2012Q1 to 2023Q4 at the HS2 level, covering more than 21 million 
+        observations, with transaction-level data on cross-border foreign direct investment involving Russia.
+        Trade effects are estimated within a gravity-based triple-difference framework featuring high-dimensional
+        fixed effects, while FDI dynamics are examined using bilateral investor–target–quarter data encompassing
+        both greenfield investments and mergers and acquisitions. The results indicate that EU exports to Russia
+        in product categories affected by the 2014 sanctions declined by approximately 12 percent, whereas the
+        sanctions introduced in 2022 triggered abrupt and severe contractions exceeding 80 percent. At the same
+        time, EU exports to a limited group of third countries increased sharply after 2022. These potential triangulating 
+        countries are not randomly distributed but are disproportionately composed of former Soviet
+        Union members, BRICS economies, and countries exhibiting political alignment with Russia. Overall,
+        the findings suggest that while EU sanctions substantially curtailed direct trade with Russia, their effectiveness
+        was partly offset by predictable patterns of trade rerouting, highlighting the importance of
+        addressing third-country channels in the design and enforcement of sanctions.
+      </p>
+    </details>
+  </li>
 
-          <li>
-            <details class="paper">
-              <summary class="paper__summary">
-                <div class="paper__head">
-                  <span class="paper__eyebrow">Working paper</span>
-                  <h4 class="paper__title">Climate Shocks and Urban Resilience in Pre-Industrial Italy</h4>
-                  <span class="paper__authors">with G. Cainelli &amp; R. Ganau</span>
-                  <ul class="tags">
-                    <li>Climate</li><li>Economic history</li><li>Cities</li><li>Demography</li>
-                  </ul>
-                </div>
-                <span class="paper__toggle" aria-hidden="true"></span>
-              </summary>
-              <div class="paper__abstract">
-                <div class="paper__abstract-inner">
-                  <span class="lbl">Abstract</span>
-                  <p>
-                    In this paper, we study whether and to what extent climatic shocks and extreme weather events shaped
-                    urban development and cities' resilience in pre-industrial Italy. To this aim, we constructed a novel
-                    city-level dataset based on original archival sources including meteorological registers, municipal
-                    records, and hospital annals. These sources provide monthly data on temperature, precipitation,
-                    barometric pressure, and other climate data, which we matched with demographic and socio-economic
-                    indicators including population, birth and mortality rates, migration flows, disease outbreaks, and
-                    food prices. We focus our analysis on seven major Italian cities — namely, Milan, Padua, Bologna,
-                    Turin, Florence, Rome, and Palermo — for which we have been able to reconstruct time-series data for
-                    the period 1700–1850. These cities allow us to leverage cross-sectional variability related to
-                    geographical factors, climate zones (i.e., the continental, Alpine, and Mediterranean ones), and
-                    institutional and political settings, them being located in different pre-unification Italian States
-                    (i.e., the Habsburg Empire, the Papal States, the Kingdom of Sardinia, the Grand Duchy of Tuscany,
-                    and the Kingdom of the Two Sicilies). We rely on time-series techniques — including decomposition
-                    and anomaly detection — to identify extreme weather events and their timing and exploit the
-                    exogenous nature of such sudden weather anomalies to study the impact of climatic shocks on
-                    population growth and demographic dynamics also accounting for historically recorded episodes of
-                    famine and epidemics. This integrated approach allows us to investigate both broad patterns across
-                    Italian cities and the local specificities of their resilience. By comparing urban dynamics and
-                    resilience across northern, central, and southern Italy, we aim at explaining why some urban centres
-                    absorbed shocks more effectively than others, highlighting both vulnerability and mechanisms of
-                    resilience. In doing so, we contribute to the literature on historical climatology and economic
-                    geography, while also offering a long-term perspective relevant to present-day debates on climate
-                    adaptation and resilience.
-                  </p>
-                </div>
-              </div>
-            </details>
-          </li>
-        </ul>
+  <li>
+    <details>
+      <summary><strong>The Hidden Cost of Oil Sanctions: Shipping Rerouting, Inflation, and CO2 Emissions</strong> (with C. Anderl)</summary>
+      <p>
+        Abstract: Western sanctions imposed on Russian oil following the 2022 invasion of Ukraine forced a structural reshaping of global crude oil trade, 
+        redirecting Russian exports from Europe toward India and China and more than doubling average maritime shipping distances. We study 
+        the macroeconomic and environmental consequences of this disruption using a novel instrument - the Oil Rerouting Index (ORI) - 
+        which quantifies the sanctions-induced increase in average shipping distances relative to the pre-war baseline. Using the ORI
+        in panel local projections, we find that sanctions-induced rerouting significantly raised consumer inflation. Heterogeneity 
+        analysis reveals that Western economies bear a moderate inflationary burden, while Asian economies display larger but noisier 
+        responses, consistent with discounted Russian crude partially offsetting higher global freight costs. We further quantify the 
+        environmental cost of rerouting, finding that longer tanker routes generated at least 29 million tonnes of excess CO₂ over 
+        the post-sanctions period. These findings document an important tension between the intended geopolitical objectives of energy 
+        sanctions and their unintended macroeconomic and environmental consequences.
+      </p>
+    </details>
+  </li>
 
-        <h3 class="subhead spaced">Earlier Work</h3>
-        <ul class="timeline">
-          <li>
-            <span class="yr">2022</span>
-            <span>
-              <span class="what">Master's thesis — The Energy Consequences of the Russia–Ukraine War: The Case of Italy</span>
-            </span>
-          </li>
-        </ul>
-      </div>
+  <li>
+    <details>
+      <summary><strong>Climate Shocks and Urban Resilience in Pre-Industrial Italy</strong> (with G. Cainelli and R. Ganau)</summary>
+      <p>
+        Abstract: In this paper, we study whether and to what extent climatic shocks and extreme weather events shaped
+        urban development and cities’ resilience in pre-industrial Italy. To this aim, we constructed a novel
+        city-level dataset based on original archival sources including meteorological registers, municipal
+        records, and hospital annals. These sources provide monthly data on temperature, precipitation,
+        barometric pressure, and other climate data, which we matched with demographic and socio-
+        economic indicators including population, birth and mortality rates, migration flows, disease
+        outbreaks, and food prices. We focus our analysis on seven major Italian cities—namely, Milan,
+        Padua, Bologna, Turin, Florence, Rome, and Palermo—for which we have been able to reconstruct
+        time-series data for the period 1700–1850. These cities allow us to leverage cross-sectional variability
+        related to geographical factors, climate zones (i.e., the continental, Alpine, and Mediterranean ones),
+        and institutional and political settings, them being located in different pre-unification Italian States
+        (i.e., the Habsburg Empire, the Papal States, the Kingdom of Sardinia, the Grand Duchy of Tuscany,
+        and the Kingdom of the Two Sicilies). We rely on time-series techniques—including decomposition
+        and anomaly detection—to identify extreme weather events and their timing and exploit the
+        exogenous nature of such sudden weather anomalies to study the impact of climatic shocks on
+        population growth and demographic dynamics also accounting for historically recorded episodes of
+        famine and epidemics. This integrated approach allows us to investigate both broad patterns across
+        Italian cities and the local specificities of their resilience. By comparing urban dynamics and
+        resilience across northern, central, and southern Italy, we aim at explaining why some urban centres
+        absorbed shocks more effectively than others, highlighting both vulnerability and mechanisms of
+        resilience. In doing so, we contribute to the literature on historical climatology, economic geography,
+        while also offering a long-term perspective relevant to present-day debates on climate adaptation and
+        resilience.
+      </p>
+    </details>
+  </li>
+</ul>
+      <h3>Past Work</h3>
+      <ul>
+        <li><strong> Master's thesis: </strong> The Energy Consequences of the Russia - Ukraine War: The Case of Italy (2022)</li>
+      </ul>
     </section>
 
-    <!-- TALKS -->
-    <section id="talks" class="section reveal">
-      <aside class="rail">
-        <span class="rail__index">03</span>
-        <h2 class="rail__title">Talks &amp; Training</h2>
-        <p class="rail__note">Selected seminars, conferences, and courses.</p>
-      </aside>
-      <div class="talks__body">
-        <ul class="timeline">
-          <li>
-            <span class="yr">2026</span>
-            <span><span class="what">dSEA Economics Internal Seminar</span><span class="where">University of Padova</span></span>
-          </li>
-          <li>
-            <span class="yr">2026</span>
-            <span><span class="what">3rd International Conference on the Climate-Macro-Finance Interface (3CMFI)</span><span class="where">SAFE, Goethe University Frankfurt</span></span>
-          </li>
-          <li>
-            <span class="yr">2025</span>
-            <span><span class="what">GY500 Work-in-Progress Seminars</span><span class="where">London School of Economics</span></span>
-          </li>
-          <li>
-            <span class="yr">2025</span>
-            <span><span class="what">Applied Economics Work-in-Progress Seminars</span><span class="where">London School of Economics</span></span>
-          </li>
-          <li>
-            <span class="yr">2025</span>
-            <span><span class="what">Padova Replication Games</span><span class="where">Economics Papers</span></span>
-          </li>
-          <li>
-            <span class="yr">2024</span>
-            <span><span class="what">Barcelona School of Economics Summer School</span><span class="where">Python &amp; Data Science</span></span>
-          </li>
-          <li>
-            <span class="yr">2022</span>
-            <span><span class="what">Un'Europa verde, digitale e inclusiva</span><span class="where">Università di Urbino</span></span>
-          </li>
-        </ul>
-      </div>
+    <section id="presentations">
+      <h2>Additional Courses, Conferences and Seminars </h2>
+      <ul>
+        <li> "dSEA Economics Internal Seminar" - University of Padova (2026)</li>
+        <li> "The Third International Conference on the Climate-Macro-Finance Interface (3CMFI)" - SAFE Goethe University Frankfurt (2026)</li>
+        <li> "GY500 Work-in-Progress seminars" - London School of Economics (2025)</li>
+        <li> "Applied Economics Work-in-Progress seminars" - London School of Economics (2025)</li>
+        <li> "Padova Replication Games" – Economics Papers (2025)</li>
+        <li> "Barcelona School of Economics Summer School" – Python & Data Science (2024)</li>
+        <li> “Un’Europa verde, digitale e inclusiva” – Università di Urbino (2022) </li>
+      </ul>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section reveal">
-      <aside class="rail">
-        <span class="rail__index">04</span>
-        <h2 class="rail__title">Contact</h2>
-        <p class="rail__note">Happy to discuss research, data, and collaborations.</p>
-      </aside>
-      <div class="contact__body">
-        <a href="mailto:cristiano.decesari@phd.unipd.it" class="contact__email">cristiano.decesari@phd.unipd.it</a>
-        <div class="contact__rows">
-          <a href="https://www.linkedin.com/in/cristiano-de-cesari-803b68181/" target="_blank" rel="noopener">
-            <i class="fa-brands fa-linkedin-in"></i> linkedin.com/in/cristiano-de-cesari
-          </a>
-          <span>
-            <i class="fa-solid fa-location-dot"></i> DSEA — University of Padova, Via del Santo 22, Padova, Italy
-          </span>
-        </div>
-      </div>
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        <i class="fas fa-envelope"></i>
+        Email: <a href="mailto:cristiano.decesari@phd.unipd.it">cristiano.decesari@phd.unipd.it</a>
+      </p>
+      <p>
+        <i class="fab fa-linkedin"></i>
+        LinkedIn: <a href="https://www.linkedin.com/in/cristiano-de-cesari-803b68181/" target="_blank">linkedin.com/in/cristiano-de-cesari</a>
+      </p>
+      <p>
+        <i class="fas fa-building"></i>
+        Office: DSEA – University of Padova, Via del Santo 22, Padova, Italy
+      </p>
     </section>
+    
   </main>
 
   <footer>
-    <div class="wrap footer__inner">
-      <span>© 2026 Cristiano De Cesari</span>
-      <span>Padova · London</span>
+    <div class="container">
+      <p>&copy; 2025 Cristiano De Cesari</p>
     </div>
   </footer>
-
-  <script>
-    document.documentElement.classList.add('js');
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
-  </script>
 </body>
 </html>
