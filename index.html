@@ -1,196 +1,487 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2BNQ2XDC73"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-2BNQ2XDC73');
-  </script>	
-  <meta charset="UTF-8" />
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="thCL96y37mWxePCTOJW0s4GP8RXPFAShzgX1ylQ3o6Y" />
+  <meta name="description" content="Cristiano De Cesari, PhD student in Economics at the University of Padova. Research on sanctions, trade rerouting, oil shocks, maritime transport and climate shocks." />
+  <title>Cristiano De Cesari – PhD in Economics</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cristiano De Cesari – PhD in Economics</title>
-  <link rel="stylesheet" href="style.css" />
-
   <style>
-    /* --- Minor enhancements layered on top of style.css --- */
-    html { scroll-behavior: smooth; }
-    section[id] { scroll-margin-top: 1.5rem; }
-
-    /* Expandable abstracts: clearer affordance + gentle open animation */
-    details summary { cursor: pointer; list-style: none; }
-    details summary::-webkit-details-marker { display: none; }
-    details summary::after {
-      content: "+";
-      margin-left: .5rem;
-      font-weight: 700;
-      opacity: .5;
+    /* ---------- Tokens (nautical-chart palette) ---------- */
+    :root {
+      --paper:   #F5F7F8;
+      --surface: #E3ECF1;
+      --ink:     #16293A;
+      --muted:   #566877;
+      --rule:    #D2DBE1;
+      --route:   #A02E68;
+      --serif: "Newsreader", Georgia, "Times New Roman", serif;
+      --sans:  "Instrument Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      color-scheme: light dark;
     }
-    details[open] summary::after { content: "–"; }
-    details[open] > p { animation: fadeAbstract .35s ease; }
-    @keyframes fadeAbstract {
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper:   #0F1B25;
+        --surface: #1B2E3D;
+        --ink:     #E4EBEF;
+        --muted:   #9BABB7;
+        --rule:    #26394A;
+        --route:   #E68DB8;
+      }
+    }
+
+    /* ---------- Base ---------- */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 1.5rem; -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 62rem; margin: 0 auto; padding: 0 1.5rem; }
+
+    a {
+      color: inherit;
+      text-decoration-line: underline;
+      text-decoration-thickness: 1px;
+      text-decoration-color: color-mix(in srgb, var(--route) 50%, transparent);
+      text-underline-offset: .2em;
+    }
+    a:hover { color: var(--route); text-decoration-color: currentColor; }
+    :focus-visible { outline: 2px solid var(--route); outline-offset: 3px; border-radius: 2px; }
+
+    /* ---------- Nav ---------- */
+    .site-nav .container {
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: .4rem 1.75rem;
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+    }
+    .site-nav a { font-size: .95rem; color: var(--muted); text-decoration: none; }
+    .site-nav a:hover { color: var(--ink); }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      display: grid;
+      grid-template-columns: 15.5rem minmax(0, 1fr);
+      column-gap: 3rem;
+      align-items: end;
+      padding-top: 1.5rem;
+    }
+    .portrait {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: 50% 25%;
+      border-radius: 3px;
+      background: var(--surface);
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(2.6rem, 5.6vw, 4.1rem);
+      line-height: 1.02;
+      letter-spacing: -.02em;
+      margin: 0 0 1.1rem;
+    }
+    .role { font-size: 1.2rem; margin: 0; }
+    .current { color: var(--muted); margin: .25rem 0 0; }
+    .hero-links {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem 1.6rem;
+      margin: 1.6rem 0 .2rem;
+      padding: 0;
+    }
+    .hero-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .hero-links i { color: var(--route); font-size: .95em; }
+
+    /* Signature: direct route vs. rerouted path */
+    .route {
+      grid-column: 1 / -1;
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-top: 3rem;
+      overflow: visible;
+    }
+    .route-direct {
+      stroke: var(--muted);
+      stroke-opacity: .45;
+      stroke-width: 1.5;
+      stroke-dasharray: 1 7;
+      stroke-linecap: round;
+      vector-effect: non-scaling-stroke;
+    }
+    .route-detour {
+      fill: none;
+      stroke: var(--route);
+      stroke-width: 1.75;
+      stroke-dasharray: 9 6;
+      vector-effect: non-scaling-stroke;
+      animation: sail 2.4s cubic-bezier(.45, 0, .2, 1) .35s backwards;
+    }
+    .waypoint {
+      fill: var(--paper);
+      stroke: var(--ink);
+      stroke-width: 1.5;
+      vector-effect: non-scaling-stroke;
+    }
+    @keyframes sail {
+      from { clip-path: inset(0 100% 0 0); }
+      to   { clip-path: inset(0 0 0 0); }
+    }
+
+    /* ---------- Sections ---------- */
+    .section {
+      display: grid;
+      grid-template-columns: 11.5rem minmax(0, 1fr);
+      column-gap: 3rem;
+      align-items: baseline;
+      padding: 3rem 0;
+      border-top: 1px solid var(--rule);
+    }
+    #about.section { border-top: 0; padding-top: 1.75rem; }
+    .section h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 1.65rem;
+      line-height: 1.2;
+      margin: 0;
+    }
+    .section-body > :first-child { margin-top: 0; }
+    .lead {
+      font-family: var(--serif);
+      font-size: 1.22rem;
+      line-height: 1.6;
+      max-width: 62ch;
+      margin: 0;
+    }
+
+    /* ---------- Research ---------- */
+    .subhead {
+      font-size: .95rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin: 0 0 1.25rem;
+    }
+    .subhead:not(:first-child) { margin-top: 2.75rem; }
+    .paper { margin: 0 0 2rem; }
+    .paper:last-child { margin-bottom: 0; }
+    .paper h4 {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 1.38rem;
+      line-height: 1.25;
+      margin: 0 0 .3rem;
+    }
+    .coauthors { color: var(--muted); font-size: .98rem; margin: 0 0 .55rem; }
+    .paper--past .coauthors { margin-bottom: 0; }
+
+    .paper summary {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .92rem;
+      font-weight: 600;
+      color: var(--route);
+      cursor: pointer;
+      list-style: none;
+      padding: .15rem 0;
+    }
+    .paper summary::-webkit-details-marker { display: none; }
+    .paper summary::before {
+      content: "+";
+      display: inline-grid;
+      place-items: center;
+      width: 1.15rem;
+      height: 1.15rem;
+      border: 1.5px solid currentColor;
+      border-radius: 50%;
+      font-size: .85rem;
+      line-height: 1;
+    }
+    .paper details[open] summary::before { content: "\2212"; }
+    .paper summary:hover { text-decoration: underline; text-underline-offset: .2em; }
+    .paper details p {
+      font-family: var(--serif);
+      font-size: 1.07rem;
+      line-height: 1.68;
+      max-width: 66ch;
+      margin: .9rem 0 .4rem;
+      padding-left: 1.1rem;
+      border-left: 2px solid var(--surface);
+    }
+    .paper details[open] > p { animation: abstract-in .3s ease; }
+    @keyframes abstract-in {
       from { opacity: 0; transform: translateY(-4px); }
       to   { opacity: 1; transform: none; }
+    }
+
+    /* ---------- Conferences ---------- */
+    .year-group {
+      display: grid;
+      grid-template-columns: 4rem minmax(0, 1fr);
+      column-gap: 1.25rem;
+      align-items: baseline;
+      margin: 0 0 1.5rem;
+    }
+    .year-group:last-child { margin-bottom: 0; }
+    .year { font-family: var(--serif); font-size: 1.2rem; margin: 0; }
+    .events { list-style: none; margin: 0; padding: 0; }
+    .events li + li { margin-top: .75rem; }
+    .event { display: block; font-weight: 500; line-height: 1.4; }
+    .venue { display: block; color: var(--muted); font-size: .95rem; }
+
+    /* ---------- Contact ---------- */
+    .contact {
+      display: grid;
+      grid-template-columns: 5.5rem minmax(0, 1fr);
+      gap: .6rem 1.25rem;
+      margin: 0;
+    }
+    .contact dt { color: var(--muted); }
+    .contact dd { margin: 0; overflow-wrap: anywhere; }
+
+    /* ---------- Footer ---------- */
+    footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .9rem; }
+    footer .container { padding-top: 1.75rem; padding-bottom: 2.5rem; }
+    footer p { margin: 0; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 760px) {
+      .site-nav .container { justify-content: flex-start; gap: .4rem 1.25rem; }
+      .hero { grid-template-columns: 1fr; row-gap: 1.75rem; padding-top: .5rem; }
+      .portrait { max-width: 15rem; }
+      .route { margin-top: 2rem; }
+      .section { grid-template-columns: 1fr; padding: 2.25rem 0; }
+      .section h2 { margin-bottom: 1rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .route-detour, .paper details[open] > p { animation: none; }
     }
   </style>
 </head>
 <body>
-  <header>
+  <nav class="site-nav" aria-label="Main">
     <div class="container">
-      <h1>Cristiano De Cesari</h1>
-      <p>PhD Student in Economics · University of Padova</p>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#research">Research</a>
-        <a href="cv_decesari.pdf" target="_blank">CV</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#conferences">Conferences</a>
+      <a href="cv_decesari.pdf" target="_blank" rel="noopener">CV</a>
+      <a href="#contact">Contact</a>
     </div>
+  </nav>
+
+  <header class="hero container">
+    <img class="portrait"
+         src="https://raw.githubusercontent.com/cristianodecesari/cristianodecesari.github.io/main/assets/profile.jpeg"
+         alt="Portrait of Cristiano De Cesari" width="480" height="600" />
+    <div class="hero-text">
+      <h1>Cristiano De Cesari</h1>
+      <p class="role">PhD Student in Economics, University of Padova</p>
+      <p class="current">PhD Intern, Deutsche Bundesbank Research Centre</p>
+      <ul class="hero-links">
+        <li><a href="mailto:cristiano.decesari@phd.unipd.it"><i class="fas fa-envelope" aria-hidden="true"></i>Email</a></li>
+        <li><a href="https://www.linkedin.com/in/cristiano-de-cesari-803b68181/" target="_blank" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i>LinkedIn</a></li>
+        <li><a href="cv_decesari.pdf" target="_blank" rel="noopener"><i class="fas fa-file-lines" aria-hidden="true"></i>CV</a></li>
+      </ul>
+    </div>
+    <svg class="route" viewBox="0 0 1000 110" aria-hidden="true" focusable="false">
+      <line class="route-direct" x1="8" y1="22" x2="992" y2="22" />
+      <path class="route-detour" d="M8 22 C 230 22, 300 94, 500 94 S 770 22, 992 22" />
+      <circle class="waypoint" cx="8" cy="22" r="6" />
+      <circle class="waypoint" cx="992" cy="22" r="6" />
+    </svg>
   </header>
 
   <main class="container">
-    <section id="about" class="profile-section">
-      <img src="https://raw.githubusercontent.com/cristianodecesari/cristianodecesari.github.io/main/assets/profile.jpeg" alt="Profile Photo" class="profile-pic" />
-      <div class="profile-text">
-        <h2>About Me</h2>
-        <p>
+    <section id="about" class="section">
+      <h2>About</h2>
+      <div class="section-body">
+        <p class="lead">
           I am a PhD student in Economics at the University of Padova, currently a PhD Intern at the Deutsche Bundesbank's Research Centre, in the Banking and Finance research focus group. Previously, I was a Visiting Doctoral Researcher at the London School of Economics and Political Science (LSE). My research interests include geopolitical shocks, international economics, trade and finance, economic geography, oil shocks and climate shocks. I hold dual master's degrees from the University of Urbino and the Kyiv School of Economics.
         </p>
-        <div class="icons">
-          <a href="mailto:cristiano.decesari@phd.unipd.it"><i class="fas fa-envelope"></i></a>
-          <a href="https://www.linkedin.com/in/cristiano-de-cesari-803b68181/" target="_blank"><i class="fab fa-linkedin"></i></a>
-          <a href="cv_decesari.pdf" target="_blank"><i class="fas fa-file-alt"></i></a>
+      </div>
+    </section>
+
+    <section id="research" class="section">
+      <h2>Research</h2>
+      <div class="section-body">
+        <h3 class="subhead">Working papers</h3>
+
+        <article class="paper">
+          <h4>Trade Under Sanctions and Diversion</h4>
+          <p class="coauthors">with Giulio Cainelli and Roberto Ganau</p>
+          <details>
+            <summary>Abstract</summary>
+            <p>
+              Economic sanctions are a central instrument of foreign policy in the aftermath of geopolitical conflicts,
+              yet their effectiveness may be undermined by indirect adjustment mechanisms. This paper quantifies
+              both the direct impact of EU trade sanctions on Russia and the extent to which these measures generate
+              systematic trade diversion through third countries, exploiting the 2014 and 2022 Ukraine–Russia crises
+              as a two-shock natural experiment. The analysis combines a newly constructed panel of quarterly EU27
+              exports to 151 destination countries from 2012Q1 to 2023Q4 at the HS2 level, covering more than 21 million
+              observations, with transaction-level data on cross-border foreign direct investment involving Russia.
+              Trade effects are estimated within a gravity-based triple-difference framework featuring high-dimensional
+              fixed effects, while FDI dynamics are examined using bilateral investor–target–quarter data encompassing
+              both greenfield investments and mergers and acquisitions. The results indicate that EU exports to Russia
+              in product categories affected by the 2014 sanctions declined by approximately 12 percent, whereas the
+              sanctions introduced in 2022 triggered abrupt and severe contractions exceeding 80 percent. At the same
+              time, EU exports to a limited group of third countries increased sharply after 2022. These potential triangulating
+              countries are not randomly distributed but are disproportionately composed of former Soviet
+              Union members, BRICS economies, and countries exhibiting political alignment with Russia. Overall,
+              the findings suggest that while EU sanctions substantially curtailed direct trade with Russia, their effectiveness
+              was partly offset by predictable patterns of trade rerouting, highlighting the importance of
+              addressing third-country channels in the design and enforcement of sanctions.
+            </p>
+          </details>
+        </article>
+
+        <article class="paper">
+          <h4>The Hidden Cost of Oil Sanctions: Shipping Rerouting, Inflation, and CO₂ Emissions</h4>
+          <p class="coauthors">with Christina Anderl</p>
+          <details>
+            <summary>Abstract</summary>
+            <p>
+              Western sanctions imposed on Russian oil following the 2022 invasion of Ukraine forced a structural reshaping of global crude oil trade,
+              redirecting Russian exports from Europe toward India and China and more than doubling average maritime shipping distances. We study
+              the macroeconomic and environmental consequences of this disruption using a novel instrument – the Oil Rerouting Index (ORI) –
+              which quantifies the sanctions-induced increase in average shipping distances relative to the pre-war baseline. Using the ORI
+              in panel local projections, we find that sanctions-induced rerouting significantly raised consumer inflation. Heterogeneity
+              analysis reveals that Western economies bear a moderate inflationary burden, while Asian economies display larger but noisier
+              responses, consistent with discounted Russian crude partially offsetting higher global freight costs. We further quantify the
+              environmental cost of rerouting, finding that longer tanker routes generated at least 29 million tonnes of excess CO₂ over
+              the post-sanctions period. These findings document an important tension between the intended geopolitical objectives of energy
+              sanctions and their unintended macroeconomic and environmental consequences.
+            </p>
+          </details>
+        </article>
+
+        <article class="paper">
+          <h4>Climate Shocks and Urban Resilience in Pre-Industrial Italy</h4>
+          <p class="coauthors">with Giulio Cainelli and Roberto Ganau</p>
+          <details>
+            <summary>Abstract</summary>
+            <p>
+              In this paper, we study whether and to what extent climatic shocks and extreme weather events shaped
+              urban development and cities’ resilience in pre-industrial Italy. To this aim, we constructed a novel
+              city-level dataset based on original archival sources including meteorological registers, municipal
+              records, and hospital annals. These sources provide monthly data on temperature, precipitation,
+              barometric pressure, and other climate data, which we matched with demographic and socio-economic
+              indicators including population, birth and mortality rates, migration flows, disease
+              outbreaks, and food prices. We focus our analysis on seven major Italian cities—namely, Milan,
+              Padua, Bologna, Turin, Florence, Rome, and Palermo—for which we have been able to reconstruct
+              time-series data for the period 1700–1850. These cities allow us to leverage cross-sectional variability
+              related to geographical factors, climate zones (i.e., the continental, Alpine, and Mediterranean ones),
+              and institutional and political settings, them being located in different pre-unification Italian States
+              (i.e., the Habsburg Empire, the Papal States, the Kingdom of Sardinia, the Grand Duchy of Tuscany,
+              and the Kingdom of the Two Sicilies). We rely on time-series techniques—including decomposition
+              and anomaly detection—to identify extreme weather events and their timing and exploit the
+              exogenous nature of such sudden weather anomalies to study the impact of climatic shocks on
+              population growth and demographic dynamics also accounting for historically recorded episodes of
+              famine and epidemics. This integrated approach allows us to investigate both broad patterns across
+              Italian cities and the local specificities of their resilience. By comparing urban dynamics and
+              resilience across northern, central, and southern Italy, we aim at explaining why some urban centres
+              absorbed shocks more effectively than others, highlighting both vulnerability and mechanisms of
+              resilience. In doing so, we contribute to the literature on historical climatology, economic geography,
+              while also offering a long-term perspective relevant to present-day debates on climate adaptation and
+              resilience.
+            </p>
+          </details>
+        </article>
+
+        <h3 class="subhead">Earlier work</h3>
+        <article class="paper paper--past">
+          <h4>The Energy Consequences of the Russia–Ukraine War: The Case of Italy</h4>
+          <p class="coauthors">Master's thesis, 2022</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="conferences" class="section">
+      <h2>Conferences, seminars &amp; courses</h2>
+      <div class="section-body">
+        <div class="year-group">
+          <p class="year">2026</p>
+          <ul class="events">
+            <li><span class="event">dSEA Economics Internal Seminar</span><span class="venue">University of Padova</span></li>
+            <li><span class="event">The Third International Conference on the Climate-Macro-Finance Interface (3CMFI)</span><span class="venue">SAFE, Goethe University Frankfurt</span></li>
+          </ul>
+        </div>
+        <div class="year-group">
+          <p class="year">2025</p>
+          <ul class="events">
+            <li><span class="event">GY500 Work-in-Progress Seminars</span><span class="venue">London School of Economics</span></li>
+            <li><span class="event">Applied Economics Work-in-Progress Seminars</span><span class="venue">London School of Economics</span></li>
+            <li><span class="event">Padova Replication Games</span><span class="venue">Economics Papers</span></li>
+          </ul>
+        </div>
+        <div class="year-group">
+          <p class="year">2024</p>
+          <ul class="events">
+            <li><span class="event">Barcelona School of Economics Summer School</span><span class="venue">Python &amp; Data Science</span></li>
+          </ul>
+        </div>
+        <div class="year-group">
+          <p class="year">2022</p>
+          <ul class="events">
+            <li><span class="event">Un’Europa verde, digitale e inclusiva</span><span class="venue">Università di Urbino</span></li>
+          </ul>
         </div>
       </div>
     </section>
 
-
-    <section id="research">
-      <h2>Research</h2>
-      <h3>Working Papers</h3>
-
-<ul>
-  <li>
-    <details>
-      <summary><strong>Trade Under Sanctions and Diversion</strong> (with G. Cainelli and R. Ganau)</summary>
-      <p>
-        Abstract: Economic sanctions are a central instrument of foreign policy in the aftermath of geopolitical conflicts,
-        yet their effectiveness may be undermined by indirect adjustment mechanisms. This paper quantifies
-        both the direct impact of EU trade sanctions on Russia and the extent to which these measures generate
-        systematic trade diversion through third countries, exploiting the 2014 and 2022 Ukraine–Russia crises
-        as a two-shock natural experiment. The analysis combines a newly constructed panel of quarterly EU27
-        exports to 151 destination countries from 2012Q1 to 2023Q4 at the HS2 level, covering more than 21 million 
-        observations, with transaction-level data on cross-border foreign direct investment involving Russia.
-        Trade effects are estimated within a gravity-based triple-difference framework featuring high-dimensional
-        fixed effects, while FDI dynamics are examined using bilateral investor–target–quarter data encompassing
-        both greenfield investments and mergers and acquisitions. The results indicate that EU exports to Russia
-        in product categories affected by the 2014 sanctions declined by approximately 12 percent, whereas the
-        sanctions introduced in 2022 triggered abrupt and severe contractions exceeding 80 percent. At the same
-        time, EU exports to a limited group of third countries increased sharply after 2022. These potential triangulating 
-        countries are not randomly distributed but are disproportionately composed of former Soviet
-        Union members, BRICS economies, and countries exhibiting political alignment with Russia. Overall,
-        the findings suggest that while EU sanctions substantially curtailed direct trade with Russia, their effectiveness
-        was partly offset by predictable patterns of trade rerouting, highlighting the importance of
-        addressing third-country channels in the design and enforcement of sanctions.
-      </p>
-    </details>
-  </li>
-
-  <li>
-    <details>
-      <summary><strong>The Hidden Cost of Oil Sanctions: Shipping Rerouting, Inflation, and CO2 Emissions</strong> (with C. Anderl)</summary>
-      <p>
-        Abstract: Western sanctions imposed on Russian oil following the 2022 invasion of Ukraine forced a structural reshaping of global crude oil trade, 
-        redirecting Russian exports from Europe toward India and China and more than doubling average maritime shipping distances. We study 
-        the macroeconomic and environmental consequences of this disruption using a novel instrument - the Oil Rerouting Index (ORI) - 
-        which quantifies the sanctions-induced increase in average shipping distances relative to the pre-war baseline. Using the ORI
-        in panel local projections, we find that sanctions-induced rerouting significantly raised consumer inflation. Heterogeneity 
-        analysis reveals that Western economies bear a moderate inflationary burden, while Asian economies display larger but noisier 
-        responses, consistent with discounted Russian crude partially offsetting higher global freight costs. We further quantify the 
-        environmental cost of rerouting, finding that longer tanker routes generated at least 29 million tonnes of excess CO₂ over 
-        the post-sanctions period. These findings document an important tension between the intended geopolitical objectives of energy 
-        sanctions and their unintended macroeconomic and environmental consequences.
-      </p>
-    </details>
-  </li>
-
-  <li>
-    <details>
-      <summary><strong>Climate Shocks and Urban Resilience in Pre-Industrial Italy</strong> (with G. Cainelli and R. Ganau)</summary>
-      <p>
-        Abstract: In this paper, we study whether and to what extent climatic shocks and extreme weather events shaped
-        urban development and cities’ resilience in pre-industrial Italy. To this aim, we constructed a novel
-        city-level dataset based on original archival sources including meteorological registers, municipal
-        records, and hospital annals. These sources provide monthly data on temperature, precipitation,
-        barometric pressure, and other climate data, which we matched with demographic and socio-
-        economic indicators including population, birth and mortality rates, migration flows, disease
-        outbreaks, and food prices. We focus our analysis on seven major Italian cities—namely, Milan,
-        Padua, Bologna, Turin, Florence, Rome, and Palermo—for which we have been able to reconstruct
-        time-series data for the period 1700–1850. These cities allow us to leverage cross-sectional variability
-        related to geographical factors, climate zones (i.e., the continental, Alpine, and Mediterranean ones),
-        and institutional and political settings, them being located in different pre-unification Italian States
-        (i.e., the Habsburg Empire, the Papal States, the Kingdom of Sardinia, the Grand Duchy of Tuscany,
-        and the Kingdom of the Two Sicilies). We rely on time-series techniques—including decomposition
-        and anomaly detection—to identify extreme weather events and their timing and exploit the
-        exogenous nature of such sudden weather anomalies to study the impact of climatic shocks on
-        population growth and demographic dynamics also accounting for historically recorded episodes of
-        famine and epidemics. This integrated approach allows us to investigate both broad patterns across
-        Italian cities and the local specificities of their resilience. By comparing urban dynamics and
-        resilience across northern, central, and southern Italy, we aim at explaining why some urban centres
-        absorbed shocks more effectively than others, highlighting both vulnerability and mechanisms of
-        resilience. In doing so, we contribute to the literature on historical climatology, economic geography,
-        while also offering a long-term perspective relevant to present-day debates on climate adaptation and
-        resilience.
-      </p>
-    </details>
-  </li>
-</ul>
-      <h3>Past Work</h3>
-      <ul>
-        <li><strong> Master's thesis: </strong> The Energy Consequences of the Russia - Ukraine War: The Case of Italy (2022)</li>
-      </ul>
-    </section>
-
-    <section id="presentations">
-      <h2>Additional Courses, Conferences and Seminars </h2>
-      <ul>
-        <li> "dSEA Economics Internal Seminar" - University of Padova (2026)</li>
-        <li> "The Third International Conference on the Climate-Macro-Finance Interface (3CMFI)" - SAFE Goethe University Frankfurt (2026)</li>
-        <li> "GY500 Work-in-Progress seminars" - London School of Economics (2025)</li>
-        <li> "Applied Economics Work-in-Progress seminars" - London School of Economics (2025)</li>
-        <li> "Padova Replication Games" – Economics Papers (2025)</li>
-        <li> "Barcelona School of Economics Summer School" – Python & Data Science (2024)</li>
-        <li> “Un’Europa verde, digitale e inclusiva” – Università di Urbino (2022) </li>
-      </ul>
-    </section>
-
-    <section id="contact">
+    <section id="contact" class="section">
       <h2>Contact</h2>
-      <p>
-        <i class="fas fa-envelope"></i>
-        Email: <a href="mailto:cristiano.decesari@phd.unipd.it">cristiano.decesari@phd.unipd.it</a>
-      </p>
-      <p>
-        <i class="fab fa-linkedin"></i>
-        LinkedIn: <a href="https://www.linkedin.com/in/cristiano-de-cesari-803b68181/" target="_blank">linkedin.com/in/cristiano-de-cesari</a>
-      </p>
-      <p>
-        <i class="fas fa-building"></i>
-        Office: DSEA – University of Padova, Via del Santo 22, Padova, Italy
-      </p>
+      <div class="section-body">
+        <dl class="contact">
+          <dt>Email</dt>
+          <dd><a href="mailto:cristiano.decesari@phd.unipd.it">cristiano.decesari@phd.unipd.it</a></dd>
+          <dt>LinkedIn</dt>
+          <dd><a href="https://www.linkedin.com/in/cristiano-de-cesari-803b68181/" target="_blank" rel="noopener">linkedin.com/in/cristiano-de-cesari</a></dd>
+          <dt>Office</dt>
+          <dd>DSEA, University of Padova<br />Via del Santo 22, Padova, Italy</dd>
+        </dl>
+      </div>
     </section>
-    
   </main>
 
   <footer>
     <div class="container">
-      <p>&copy; 2025 Cristiano De Cesari</p>
+      <p>&copy; 2026 Cristiano De Cesari</p>
     </div>
   </footer>
 </body>
