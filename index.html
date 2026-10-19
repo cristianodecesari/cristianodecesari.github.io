@@ -243,6 +243,19 @@
       border-left: 2px solid var(--surface);
     }
     .paper details[open] > p { animation: abstract-in .3s ease; }
+    .paper figure {
+      max-width: 26rem;
+      margin: .9rem 0 .4rem;
+      padding-left: 1.1rem;
+      border-left: 2px solid var(--surface);
+    }
+    .paper figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 3px;
+      background: #fff;
+    }
     @keyframes abstract-in {
       from { opacity: 0; transform: translateY(-4px); }
       to   { opacity: 1; transform: none; }
@@ -344,10 +357,10 @@
 
         <article class="paper">
           <h4>Trade Under Sanctions and Diversion</h4>
-          <p class="coauthors">with Giulio Cainelli (University of Padova) and Roberto Ganau (University of Padova)</p>
+          <p class="coauthors">with Giulio Cainelli and Roberto Ganau</p>
           <details>
             <summary>Abstract</summary>
-                        <p>
+            <p>
               We study how EU sanctions on Russia reshaped European exports after the 2014 annexation of Crimea and
               the 2022 full-scale invasion. Using a structural gravity model estimated by PPML on quarterly EU-27 exports
               by product and destination (2012–2023), we find that sanctions cut EU exports of targeted goods to Russia
@@ -367,10 +380,11 @@
 
         <article class="paper">
           <h4>The Hidden Cost of Oil Sanctions: Shipping Rerouting, Inflation, and CO₂ Emissions</h4>
-          <p class="coauthors">with Christina Anderl (Bank of England) </p>
+          <p class="coauthors">with Christina Anderl</p>
           <details>
             <summary>Abstract</summary>
-             Western sanctions on Russian crude after the 2022 invasion of Ukraine changed where Russian oil went, not how much
+            <p>
+              Western sanctions on Russian crude after the 2022 invasion of Ukraine changed where Russian oil went, not how much
               was sold: exports shifted from Europe to more distant buyers in India and China, with no detectable effect on the
               world price of crude. Combining a new Oil Rerouting Index (ORI) with a voyage model of more than 5,000 tanker cargoes,
               we estimate that the longer routes cost about USD 7 billion in extra shipping and generated 11 million tonnes of
@@ -384,6 +398,7 @@
                    alt="Russian seaborne crude exports by destination, 2019–2024: total volumes stay near their pre-war average while the share going to Europe collapses and Asia takes almost all of it."
                    width="1941" height="1117" loading="lazy" />
             </figure>
+          </details>
         </article>
 
         <article class="paper">
